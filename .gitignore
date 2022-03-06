@@ -1,0 +1,7 @@
+__pycache__
+venv/
+.env
+DailyEC2stopstart/
+.mypy_cache/
+.vscode/
+example.json
