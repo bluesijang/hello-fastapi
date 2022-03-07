@@ -1,5 +1,5 @@
 from pyexpat import model
-from tkinter import EXCEPTION
+#from tkinter import EXCEPTION
 from fastapi import Depends
 from jose import JWTError, jwt
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
