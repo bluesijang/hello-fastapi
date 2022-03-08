@@ -30,7 +30,7 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# origins = ["*"]
+# origins = ["*"]       # every domain
 origins = ["https://www.google.com", "https://www.youtube.com"]
 
 app.add_middleware(
@@ -47,9 +47,14 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
 
+
+# For CORS test from local computer chrome browser
+# without origins options, 
+# connectting from outside such as youtube, google etc..
+# to local is not accepted ()
 @app.get("/")
 def root():
-    return {"messages": "Hello World"}
+    return {"messages": "Hello World !!!"}
 
 # Using ORM
 # @app.get("/sqlalchemy")
