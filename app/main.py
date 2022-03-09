@@ -43,10 +43,9 @@ app.add_middleware(
 
 
 app.include_router(post.router)
-app.include_router(user.router)
 app.include_router(auth.router)
+app.include_router(user.router)
 app.include_router(vote.router)
-
 
 # For CORS test from local computer chrome browser
 # without origins options, 
@@ -54,7 +53,7 @@ app.include_router(vote.router)
 # to local is not accepted ()
 @app.get("/")
 def root():
-    return {"messages": "Hello World !!!"}
+    return {"messages": "Hello World !!!~~~~"}
 
 # Using ORM
 # @app.get("/sqlalchemy")
@@ -63,5 +62,4 @@ def root():
 #     posts = db.query(models.Post).all()
 #     print(posts)
 #     return {"data" : posts }
-
 
