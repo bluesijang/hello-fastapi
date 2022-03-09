@@ -118,4 +118,4 @@ jobs:
           script: |
             cd app/src
             git pull
-            sudo systemctl restart
+            echo ${{ secrets.UBUNTU_PASSWORD }} | sudo -S systemctl restart fastapi
