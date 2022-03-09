@@ -100,3 +100,22 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
+
+
+      # login to our ubuntu
+      # cd /app/src
+      # git pull
+      # systemctl restart api
+      #
+      # => market place : ssh remote commands  by appleboy
+      - name: deploy to ubuntu server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.UBUNTU_HOST }}
+          username: ${{ secrets.UBUNTU_USERNAME }}
+          password: ${{ secrets.UBUNTU_PASSWORD }}
+          port: ${{ secrets.UBUNTU_PORT }}
+          script: |
+            cd app/src
+            git pull
+            sudo systemctl restart

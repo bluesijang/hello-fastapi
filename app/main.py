@@ -53,7 +53,7 @@ app.include_router(vote.router)
 # to local is not accepted ()
 @app.get("/")
 def root():
-    return {"messages": "Successfully deployed CI/CD pipeline"}
+    return {"messages": "Successfully deployed"}
 
 # Using ORM
 # @app.get("/sqlalchemy")
