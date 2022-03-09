@@ -73,10 +73,30 @@ jobs:
       #     cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/fastapi:buildcache
       #     cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/fastapi:buildcache,mode=max
 
+
+
+      
+      # 
+      # pull github repo
+      # install heroku cli
+      # heroku login
+      # add git remote for heroku
+      # git push heroku main
+      #
+      #  => github market place to use built-in action
+
   job2-deploy:
     runs-on: ubuntu-latest
     needs: [job1-build]
+    environment:
+      name: production
 
     steps:
-      - name: deploying
-        run: echo "going to deply some stuff"
+      - name: pulling git repo
+        uses: actions/checkout@v3 
+      - name: deploying to heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}" #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
