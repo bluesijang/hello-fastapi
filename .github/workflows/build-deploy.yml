@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  job1: action test
+  job1:
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
