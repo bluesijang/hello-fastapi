@@ -6,7 +6,7 @@ on:
   push:
     branches: ["main"]
 
-jos:
+jobs:
   job1: action test
     runs-on: ubuntu-latest
     steps:
